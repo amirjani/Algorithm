@@ -35,6 +35,23 @@ def find_closest_value_in_bst(tree, target_number):
     return closest
 
 
+def find_closest_value_in_bst_recursive(tree, target_number):
+    return find_closest_value_in_bst_recursive_helper(tree, target_number, float("inf"))
+
+
+def find_closest_value_in_bst_recursive_helper(tree, target_number, closest):
+    if tree is None:
+        return closest
+    if abs(target_number - closest) > abs(target_number - tree.value):
+        closest = tree.value
+    if target_number < tree.value:
+        return find_closest_value_in_bst_recursive_helper(tree.left, target_number, closest)
+    elif target_number > tree.value:
+        return find_closest_value_in_bst_recursive_helper(tree.right, target_number, closest)
+    else:
+        return closest
+
+
 class BST:
     def __init__(self, value):
         self.value = value
