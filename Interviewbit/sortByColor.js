@@ -10,28 +10,31 @@ module.exports = {
  //param A : array of integers
  //return a array of integers
 	sortColors : function(colors){
-	     var red = 0;
-    var white = 0;
-    var blue = 0;
+	  var redCount = 0;
+    var whiteCount = 0;
+    var blueCount = 0;
+
+    // first pass to count colors
     for(var i = 0; i < colors.length; i++){
       if(colors[i] === 0){
-        red++;
+        redCount++;
       }
       if(colors[i] === 1){
-        white++;
+        whiteCount++;
       }
       if(colors[i] === 2){
-        blue++;
+        blueCount++;
       }
     }
+
     var sorted = [];
-    for(var i = 0; i < red; i++){
+    for(var i = 0; i < redCount; i++){
       sorted.push(0);
     }
-    for(var i = 0; i < white; i++){
+    for(var i = 0; i < whiteCount; i++){
       sorted.push(1);
     }
-    for(var i = 0; i < blue; i++){
+    for(var i = 0; i < blueCount; i++){
       sorted.push(2);
     }
     return sorted;
